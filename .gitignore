@@ -1,0 +1,51 @@
+# --- Secrets -- never commit these ---
+.env
+*.env
+**/secrets.py
+**/config_local.py
+credentials.json
+token.json
+*.key
+
+# --- Whisper / piper model weights (large, downloaded, regeneratable) ---
+*.pt
+**/piper-voices/
+**/whisper-models/
+
+# NOTE: do NOT blanket-ignore *.onnx here -- models/hey_jarvis_v0.1.onnx
+# is a custom-trained wake word model, small and not regeneratable from
+# a public source. It should be committed. If you add other .onnx files
+# that ARE just downloaded/stock models, ignore those by specific path
+# instead of a wildcard.
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+.mypy_cache/
+.pytest_cache/
+
+# --- Audio/temp artifacts Jarvis generates at runtime ---
+*.wav
+/tmp/
+*.tmp
+
+# --- Personal data -- do not commit ---
+# context.md contains health history and personal testimony; commit
+# context.example.md (a placeholder) instead if you want the file's
+# structure documented in the repo.
+context.md
+tasks.md
+
+# --- Superseded by git history, not included in the repo ---
+jarvis-backup/
+
+# --- Editor / OS ---
+.vscode/
+.idea/
+*.swp
+.DS_Store
